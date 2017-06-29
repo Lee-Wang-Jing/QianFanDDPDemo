@@ -37,9 +37,7 @@ dependencies {
     compile 'com.android.support:percent:' + rootProject.supportLibVersion
     compile 'com.android.support:design:' + rootProject.supportLibVersion
     compile(name: 'Ddpai_sdk_build-release', ext: 'aar')
-    compile 'me.yokeyword:fragmentation:0.10.7'{
-        exclude group:'com.android.support',module: ''
-    }
+    compile 'me.yokeyword:fragmentation:0.10.7'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.facebook.fresco:fresco:1.3.0'
     compile 'com.yanzhenjie:permission:1.0.8'

@@ -2,6 +2,10 @@ package com.qianfan.qianfanddpdemo;
 
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Bitmap;
+
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 
 /**
  * 作者：Created by WangJing on 2017/6/29.
@@ -18,6 +22,17 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        initFresco();
+    }
+
+    private void initFresco() {
+        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
+                .setDownsampleEnabled(true)
+                .setResizeAndRotateEnabledForNetwork(true)
+                .setBitmapsConfig(Bitmap.Config.RGB_565)
+                .build();
+        //初始化Fresco
+        Fresco.initialize(this, config);
     }
 
     public static Context getmContext() {

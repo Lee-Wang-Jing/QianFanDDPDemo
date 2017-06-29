@@ -96,6 +96,7 @@ public class SSPAllFiles_SSOFragmentAdapter extends BaseAdapter {
             adapter = new SSPDateListGridSSOAdapter(mContext);
             adapter.setOnDDPSelectFilesLinstener(onDDPSelectFilesLinstener);
             gridView.setAdapter(adapter);
+            gridAdapter = adapter;
         }
 
         @Override

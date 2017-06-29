@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/base_toolbar" />
+
+    <include
+        android:id="@+id/layout_noadd"
+        layout="@layout/activity_suishoupai_no"
+        android:visibility="gone" />
+
+</FrameLayout>

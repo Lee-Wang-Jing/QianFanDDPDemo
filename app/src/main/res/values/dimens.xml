@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="toolbar_height">48dp</dimen>
+
+    <dimen name="base_margin_left">14dp</dimen>
+    <dimen name="base_margin_right">14dp</dimen>
+
+
+
+
+
+
+</resources>

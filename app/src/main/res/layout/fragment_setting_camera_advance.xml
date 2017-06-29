@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_efeff3"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/base_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_efeff3"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/base_margin_left"
+                android:layout_marginTop="12dp"
+                android:text="遥控器配对"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="@dimen/base_margin_left"
+                android:text="启动配对后，将遥控器靠近摄像机并连续按下3-5次。"
+                android:textColor="@color/color_666666"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_open"
+                android:layout_width="91dp"
+                android:layout_height="31dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/selector_corner_solid_e9"
+                android:text="开启"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:divider="@drawable/divider_dddddd_vertical"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:id="@+id/ll_car_protect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/base_margin_left"
+                        android:layout_weight="1"
+                        android:text="停车电源保护"
+                        android:textColor="@color/color_333333"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="21dp"
+                            android:background="@color/color_dddddd" />
+
+                        <TextView
+                            android:id="@+id/tv_duration"
+                            android:layout_width="109dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="15分钟"
+                            android:textColor="@color/color_333333"
+                            android:textSize="15sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="5dp"
+                            android:src="@mipmap/icon_select_down" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="@dimen/base_margin_left"
+                    android:layout_marginTop="4dp"
+                    android:text="选择时长，当停车达到该时长后自动关闭，从而保护车辆电池"
+                    android:textColor="@color/color_666666"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/base_margin_left">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="停车监控"
+                    android:textColor="@color/color_222222"
+                    android:textSize="15sp" />
+
+                <com.qianfan.qianfanddpdemo.widgets.SwitchView
+                    android:id="@+id/switch_monitor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/base_margin_right"
+                    app:isOpened="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/base_margin_left">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="开机提示音"
+                    android:textColor="@color/color_222222"
+                    android:textSize="15sp" />
+
+                <com.qianfan.qianfanddpdemo.widgets.SwitchView
+                    android:id="@+id/switch_sounds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/base_margin_right"
+                    app:isOpened="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/base_margin_left">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="图像左右翻转"
+                    android:textColor="@color/color_222222"
+                    android:textSize="15sp" />
+
+                <com.qianfan.qianfanddpdemo.widgets.SwitchView
+                    android:id="@+id/switch_reversal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/base_margin_right"
+                    app:isOpened="false" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/base_margin_left">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="碰撞感应灵敏度"
+                android:textColor="@color/color_222222"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/ll_sensitivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="21dp"
+                    android:background="@color/color_dddddd" />
+
+                <TextView
+                    android:id="@+id/tv_sensitivity"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="中"
+                    android:textColor="@color/color_333333"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="5dp"
+                    android:src="@mipmap/icon_select_down" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">千帆盯盯拍Demo</string>
+
+
+    <string name="footer_loadmore">点击查看更多</string>
+    <string name="footer_loading">正在努力加载</string>
+    <string name="footer_nomore">已显示全部</string>
+    <string name="footer_again">加载失败，点击重新加载</string>
+
+
+    <string name="loading_empty">暂无内容</string>
+    <string name="loading_ing">正在加载……</string>
+
+
+
+    <!--摄像机设置-->
+    <string name="string_camera_name">摄像机名称</string>
+    <string name="string_camera_password">摄像机密码</string>
+    <string name="string_camera_volume">音量调节</string>
+    <string name="string_camera_recording">录像时录音</string>
+    <string name="string_camera_video">拍照关联视频</string>
+    <string name="string_camera_quality">图像质量</string>
+    <string name="string_camera_setting">高级设置</string>
+    <string name="string_camera_format">格式化照相机</string>
+
+    <string name="string_save">保存</string>
+</resources>

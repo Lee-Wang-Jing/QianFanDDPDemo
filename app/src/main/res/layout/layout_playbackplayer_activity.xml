@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_4c4c4c"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/base_toolbar"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.ddp.sdk.player.view.VVideoPlayerView
+            android:id="@+id/videoPlayerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/fl_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/simpleDraweeView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                fresco:actualImageScaleType="centerCrop"
+                fresco:fadeDuration="300"
+                fresco:failureImage="@color/color_placeholder"
+                fresco:placeholderImage="@color/color_placeholder"
+                fresco:viewAspectRatio="1.77" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/icon_ddpai_player" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingTop="30dp">
+
+        <TextView
+            android:id="@+id/tv_shipinjietu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="4dp"
+            android:drawableTop="@mipmap/icon_ddp_shipinjietu"
+            android:gravity="center_horizontal"
+            android:text="视频截图"
+            android:textColor="@color/color_888888"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_shipinjianji"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="4dp"
+            android:drawableTop="@mipmap/icon_ddp_shipinjianji"
+            android:gravity="center_horizontal"
+            android:text="视频剪辑"
+            android:textColor="@color/color_888888"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_download"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="4dp"
+            android:drawableTop="@mipmap/icon_ddp_download"
+            android:gravity="center_horizontal"
+            android:text="下载视频"
+            android:textColor="@color/color_888888"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

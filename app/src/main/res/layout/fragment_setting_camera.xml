@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    >
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/base_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_efeff3"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_camera_name"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/selector_item_click_transparent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="14dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/string_camera_name"
+                    android:textColor="@color/color_222222"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_camera_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="13dp"
+                    android:text=""
+                    android:textColor="@color/color_888888"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/base_margin_right"
+                    android:src="@mipmap/icon_arrow_right" />
+            </LinearLayout>
+
+            <View
+                style="@style/default_line"
+                android:layout_marginLeft="@dimen/base_margin_left" />
+
+            <TextView
+                android:id="@+id/tv_camera_password"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/selector_item_click_transparent"
+                android:drawableRight="@mipmap/icon_arrow_right"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/base_margin_left"
+                android:paddingRight="@dimen/base_margin_right"
+                android:text="@string/string_camera_password"
+                android:textColor="@color/color_222222"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_camera_volume"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/selector_item_click_transparent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/base_margin_left">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/string_camera_volume"
+                    android:textColor="@color/color_222222"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_camera_volume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="13dp"
+                    android:text=""
+                    android:textColor="@color/color_888888"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/base_margin_right"
+                    android:src="@mipmap/icon_arrow_right" />
+            </LinearLayout>
+
+            <View
+                style="@style/default_line"
+                android:layout_marginLeft="@dimen/base_margin_left" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/base_margin_left">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/string_camera_recording"
+                    android:textColor="@color/color_222222"
+                    android:textSize="15sp" />
+
+                <com.qianfan.qianfanddpdemo.widgets.SwitchView
+                    android:id="@+id/switch_camera_recording"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/base_margin_right"
+                    app:isOpened="true" />
+            </LinearLayout>
+
+            <View
+                style="@style/default_line"
+                android:layout_marginLeft="@dimen/base_margin_left" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/base_margin_left">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/string_camera_video"
+                    android:textColor="@color/color_222222"
+                    android:textSize="15sp" />
+
+                <com.qianfan.qianfanddpdemo.widgets.SwitchView
+                    android:id="@+id/switch_camera_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/base_margin_right"
+                    app:isOpened="true" />
+            </LinearLayout>
+
+            <View
+                style="@style/default_line"
+                android:layout_marginLeft="@dimen/base_margin_left" />
+
+            <LinearLayout
+                android:id="@+id/ll_camera_quality"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/selector_item_click_transparent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/base_margin_left">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/string_camera_quality"
+                    android:textColor="@color/color_222222"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_camera_quality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="13dp"
+                    android:text=""
+                    android:textColor="@color/color_888888"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/base_margin_right"
+                    android:src="@mipmap/icon_arrow_right" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_camera_setting"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/selector_item_click_transparent"
+                android:drawableRight="@mipmap/icon_arrow_right"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/base_margin_left"
+                android:paddingRight="@dimen/base_margin_right"
+                android:text="@string/string_camera_setting"
+                android:textColor="@color/color_222222"
+                android:textSize="15sp" />
+
+            <View
+                style="@style/default_line"
+                android:layout_marginLeft="@dimen/base_margin_left" />
+
+            <TextView
+                android:id="@+id/tv_camera_format"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/selector_item_click_transparent"
+                android:drawableRight="@mipmap/icon_arrow_right"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/base_margin_left"
+                android:paddingRight="@dimen/base_margin_right"
+                android:text="@string/string_camera_format"
+                android:textColor="@color/color_222222"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,147 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/crop_bar_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp">
+
+        <!-- 时间显示 -->
+
+        <RelativeLayout
+            android:id="@+id/crop_time_ly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/crop_time_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0:18"
+                android:textColor="@color/color_999999" />
+
+            <TextView
+                android:id="@+id/crop_time_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                tools:text="0:18" />
+
+            <TextView
+                android:id="@+id/crop_time_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/color_999999"
+                tools:text="0:18" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/crop_scale_view"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_below="@+id/crop_time_ly"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip" />
+
+        <RelativeLayout
+            android:id="@+id/crop_select_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/crop_scale_view"
+            android:layout_alignTop="@+id/crop_scale_view">
+
+            <ImageView
+                android:id="@+id/crop_area_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="2dip"
+                android:layout_marginTop="2dip"
+                android:background="@drawable/video_crop_seekbar_range"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="3dip"
+                android:background="@color/colorPrimary" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="3dip"
+                android:background="@color/colorPrimary" />
+
+            <ImageView
+                android:id="@+id/crop_left_thumb"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/video_crop_seekbar_dragleft" />
+
+            <ImageView
+                android:id="@+id/crop_right_thumb"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/video_crop_seekbar_dragright" />
+        </RelativeLayout>
+
+        <!-- 左边的遮盖层 -->
+
+        <RelativeLayout
+            android:id="@+id/crop_area_left_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/crop_scale_view"
+            android:layout_alignLeft="@+id/crop_scale_view"
+            android:layout_alignStart="@+id/crop_scale_view"
+            android:layout_alignTop="@+id/crop_scale_view"
+            android:layout_marginBottom="5dip"
+            android:layout_marginTop="5dip"
+            android:alpha="0.8"
+            android:background="#000000"
+            android:orientation="horizontal"
+            android:visibility="visible" />
+
+        <!-- 右边的遮盖层 -->
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/crop_scale_view"
+            android:layout_alignEnd="@+id/crop_scale_view"
+            android:layout_alignRight="@+id/crop_scale_view"
+            android:layout_alignTop="@+id/crop_scale_view"
+            android:layout_marginBottom="5dip"
+            android:layout_marginTop="5dip"
+            android:layout_toEndOf="@+id/crop_select_lay"
+            android:layout_toRightOf="@+id/crop_select_lay"
+            android:alpha="0.8"
+            android:background="#000000"
+            android:orientation="horizontal"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/wait_progress"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignBottom="@+id/crop_bar_lay"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dip"
+        android:maxHeight="25dp"
+        android:maxWidth="25dp"
+        android:visibility="gone" />
+
+</RelativeLayout>

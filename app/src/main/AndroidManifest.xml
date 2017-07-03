@@ -55,10 +55,10 @@
         <!-- 盯盯拍相关 -->
         <meta-data
             android:name="DDP_APPKEY"
-            android:value="vBHNjV9ZNisV6" /> <!-- 测试账号 -->
+            android:value="M2fTVtyLxnQ1bEMA" /> <!-- 测试账号 -->
         <meta-data
             android:name="DDP_APPSECRET"
-            android:value="a1Eho73yYnrao" /> <!-- 测试账号 -->
+            android:value="aPjPL0bgAJN26yu9" /> <!-- 测试账号 -->
         <!-- 如果使用cam_resmgr资源管理库，建议使用独立进程管理数据库 -->
         <provider
             android:name="com.ddp.sdk.base.provider.VProvider"

@@ -93,31 +93,32 @@ public class VideoViewActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 videoView.pause();
-                ToastUtil.TLong(VideoViewActivity.this,"您还未登陆");
-                return;
 //                if (!MyApplication.isLogin()){
 //                    IntentUtils.jumpLogin(VideoViewActivity.this);
 //                    return;
 //                }
-//                if (TimeUtils.isThan48Hour(startTime)) {//若拍摄时间到上传时间超过48小时，提醒【该视频已超过48小时，不能进行违法举报】
-//                    ToastUtil.TLong(VideoViewActivity.this, "该视频已超过48小时，不能进行违法举报");
-//                } else {
-//                    long duration = videoView.getDuration() / 1000;
-//                    LogUtil.e("imv_jubao", "" + duration);
-//                    if (duration > 10) {//若视频超出10秒，则跳转至1.1.5.3.5.1-违法视频剪辑
-//                        LogUtil.e("视频时间", "若视频超出15秒，则跳转至1.1.5.3.5.1-违法视频剪辑");
-//                        IntentUtils.jumpVideoCropActivity(VideoViewActivity.this, path,startTime);
-//                        finish();
-//                    } else if (duration < 5) {//若小于5秒，则弹窗提醒【该视频小于5秒，无法上传】
-//                        ToastUtil.TLong(VideoViewActivity.this, "该视频小于5秒，无法上传");
-//                    } else {//若在5-15秒以内，则跳转至1.1.5.3.5-违法举报
-//                        Intent intent = new Intent(VideoViewActivity.this, WeiZhangJuBaoActivity.class);
-//                        intent.putExtra("time", startTime);
-//                        intent.putExtra("path", path);
-//                        startActivity(intent);
-//                        finish();
-//                    }
-//                }
+                if (TimeUtils.isThan48Hour(startTime)) {//若拍摄时间到上传时间超过48小时，提醒【该视频已超过48小时，不能进行违法举报】
+                    ToastUtil.TLong(VideoViewActivity.this, "该视频已超过48小时，不能进行违法举报");
+                } else {
+                    long duration = videoView.getDuration() / 1000;
+                    LogUtil.e("imv_jubao", "" + duration);
+                    if (duration > 10) {//若视频超出10秒，则跳转至1.1.5.3.5.1-违法视频剪辑
+                        LogUtil.e("视频时间", "若视频超出15秒，则跳转至1.1.5.3.5.1-违法视频剪辑");
+                        Intent intent = new Intent(VideoViewActivity.this, VideoCropActivity.class);
+                        intent.putExtra("video_Path", "" + path);
+                        intent.putExtra("date", startTime);
+                        startActivity(intent);
+                        finish();
+                    } else if (duration < 5) {//若小于5秒，则弹窗提醒【该视频小于5秒，无法上传】
+                        ToastUtil.TLong(VideoViewActivity.this, "该视频小于5秒，无法上传");
+                    } else {//若在5-15秒以内，则跳转至1.1.5.3.5-违法举报
+                        Intent intent = new Intent(VideoViewActivity.this, WeiZhangJuBaoActivity.class);
+                        intent.putExtra("time", startTime);
+                        intent.putExtra("path", path);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
             }
         });
         imv_back.setOnClickListener(new View.OnClickListener() {

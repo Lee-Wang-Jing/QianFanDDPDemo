@@ -69,7 +69,7 @@ import java.util.List;
  * Created by wangjing on 2017/3/22.
  */
 
-public class WeiZhangJuBaoActivity extends BaseActivity implements View.OnClickListener{
+public class WeiZhangJuBaoActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = WeiZhangJuBaoActivity.class.getSimpleName();
     // 这些操作结果的key由用户自己定义，自己保存
     private static final String RESULT_KEY_CAPTURE_PICS = "result_key_capture_pics";      // 截取图片数组，查询操作结果
@@ -211,10 +211,13 @@ public class WeiZhangJuBaoActivity extends BaseActivity implements View.OnClickL
             if (latitude > 0 && longitude > 0) {
                 convertGPS();
             }
+        } else {
+
         }
         if (latitude != 0L && longitude != 0L) {
             getAddressByLatlng(latitude, longitude);
         }
+        tv_address.setText(latitude + " " + longitude);
     }
 
     /**
@@ -233,6 +236,7 @@ public class WeiZhangJuBaoActivity extends BaseActivity implements View.OnClickL
 //
 //            latitude = desLatLng.getLatitude();
 //            longitude = desLatLng.getLongitude();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -342,7 +346,7 @@ public class WeiZhangJuBaoActivity extends BaseActivity implements View.OnClickL
                         }
                         list.add(videoImgs[i]);
                     }
-                    ToastUtil.TLong(WeiZhangJuBaoActivity.this,"跳转图片查看页面");
+                    ToastUtil.TLong(WeiZhangJuBaoActivity.this, "跳转图片查看页面");
 //                    IntentUtils.jumpPhoto_Select_Preview(WeiZhangJuBaoActivity.this, 0, list, true);
                 }
                 break;
@@ -356,7 +360,7 @@ public class WeiZhangJuBaoActivity extends BaseActivity implements View.OnClickL
                         list1.add(videoImgs[i]);
                     }
 //                    IntentUtils.jumpPhoto_Select_Preview(WeiZhangJuBaoActivity.this, 1, list1, true);
-                    ToastUtil.TLong(WeiZhangJuBaoActivity.this,"跳转图片查看页面");
+                    ToastUtil.TLong(WeiZhangJuBaoActivity.this, "跳转图片查看页面");
                 }
                 break;
             case R.id.simpleDraweeView3:
@@ -368,7 +372,7 @@ public class WeiZhangJuBaoActivity extends BaseActivity implements View.OnClickL
                         }
                         list2.add(videoImgs[i]);
                     }
-                    ToastUtil.TLong(WeiZhangJuBaoActivity.this,"跳转图片查看页面");
+                    ToastUtil.TLong(WeiZhangJuBaoActivity.this, "跳转图片查看页面");
 //                    IntentUtils.jumpPhoto_Select_Preview(WeiZhangJuBaoActivity.this, 2, list2, true);
                 }
                 break;
@@ -376,7 +380,7 @@ public class WeiZhangJuBaoActivity extends BaseActivity implements View.OnClickL
                 showDateDialog();
                 break;
             case R.id.imv_location:
-                ToastUtil.TLong(WeiZhangJuBaoActivity.this,"跳转地图选点页面");
+                ToastUtil.TLong(WeiZhangJuBaoActivity.this, "跳转地图选点页面");
 //                if (NetworkUtils.getConnectWifiSsid(this).contains("vYou_")) {
 //                    ToastUtil.TShort(this, "未检测到网络，请切换其他网络");
 //                } else {
@@ -392,7 +396,7 @@ public class WeiZhangJuBaoActivity extends BaseActivity implements View.OnClickL
 //                } else {
 //                    getIllegalcategories();
 //                }
-                ToastUtil.TLong(WeiZhangJuBaoActivity.this,"请求违法类型");
+                ToastUtil.TLong(WeiZhangJuBaoActivity.this, "请求违法类型");
                 break;
             case R.id.tv_commit:
                 if (TextUtils.isEmpty(tv_address.getText().toString()) || latitude == 0L || longitude == 0L) {
@@ -403,7 +407,7 @@ public class WeiZhangJuBaoActivity extends BaseActivity implements View.OnClickL
                     ToastUtil.TLong(this, "请选择车辆类型");
                     return;
                 }
-                if (TextUtils.isEmpty(et_card.getText().toString()) ) {
+                if (TextUtils.isEmpty(et_card.getText().toString())) {
                     ToastUtil.TLong(this, "请输入车牌号");
                     return;
                 }
@@ -414,7 +418,7 @@ public class WeiZhangJuBaoActivity extends BaseActivity implements View.OnClickL
 //                if (NetworkUtils.getConnectWifiSsid(this).contains("vYou_")) {
 //                    ToastUtil.TShort(this, "未检测到网络，请切换其他网络");
 //                }
-                ToastUtil.TLong(this,"进行违法上报");
+                ToastUtil.TLong(this, "进行违法上报");
 //                showProgressDialog("正在上传中");
 //                commitData();
                 break;
@@ -467,7 +471,7 @@ public class WeiZhangJuBaoActivity extends BaseActivity implements View.OnClickL
 //        intent.putExtra("type", 107);
 //        intent.putExtra("entity", entity);
 //        startService(intent);
-        ToastUtil.TLong(this,"进行违法上报");
+        ToastUtil.TLong(this, "进行违法上报");
     }
 
 

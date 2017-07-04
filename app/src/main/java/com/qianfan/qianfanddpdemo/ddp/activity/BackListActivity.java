@@ -12,8 +12,11 @@ import com.ddp.sdk.cam.resmgr.CameraResMgr;
 import com.ddp.sdk.cam.resmgr.listener.UpdateThumbListener;
 import com.ddp.sdk.cam.resmgr.model.ThumbInfo;
 import com.ddp.sdk.cambase.CameraServer;
+import com.ddp.sdk.cambase.listener.OnCamResourceListener;
 import com.ddp.sdk.cambase.model.Camera;
+import com.ddp.sdk.cambase.model.EventFile;
 import com.ddp.sdk.cambase.model.PlayFile;
+import com.ddp.sdk.cambase.model.TrackFile;
 import com.ddp.sdk.cambase.utils.VTask;
 import com.qianfan.qianfanddpdemo.R;
 import com.qianfan.qianfanddpdemo.base.BaseDDPActivity;
@@ -28,8 +31,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * 回放列表
- * Created by wangjing on 2017/1/9.
+ * 回放列表 Created by wangjing on 2017/1/9.
  */
 public class BackListActivity extends BaseDDPActivity implements SwipeRefreshLayout.OnRefreshListener {
     private static final String TAG = "BackListActivity";
@@ -45,6 +47,8 @@ public class BackListActivity extends BaseDDPActivity implements SwipeRefreshLay
 
     private List<PlayFile> playFiles = new ArrayList<>();
 
+    // 是否是第一次初始化数据
+    private boolean isFirstInitDataList = true;
 
     private int fileItemHeight;
     private int fileItemWidth;
@@ -54,7 +58,7 @@ public class BackListActivity extends BaseDDPActivity implements SwipeRefreshLay
 
     private DisplayMetrics dm;
 
-//    private SimpleDateFormat formater = new SimpleDateFormat(ResFile.DATE_FILE_NAME);
+    //    private SimpleDateFormat formater = new SimpleDateFormat(ResFile.DATE_FILE_NAME);
 
 
     /**
@@ -70,17 +74,25 @@ public class BackListActivity extends BaseDDPActivity implements SwipeRefreshLay
         initP();
         initView();
         initData();
-        getbackDatas();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
+        getbackDatas(isFirstInitDataList);
+        isFirstInitDataList = false;
     }
 
-    private void getbackDatas() {
-        mLoadingView.showLoading(true);
+    /**
+     * 获取回放列表
+     *
+     * @param isShowLoadingDlg 是否显示等待框
+     */
+    private void getbackDatas(boolean isShowLoadingDlg) {
+        if (isShowLoadingDlg) {
+            mLoadingView.showLoading(true);
+        }
+
         new VTask<Object, List<PlayFile>>() {
             @Override
             protected List<PlayFile> doBackground(Object o) {
@@ -160,8 +172,8 @@ public class BackListActivity extends BaseDDPActivity implements SwipeRefreshLay
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         setBaseBackToolbar(toolbar, "回放列表");
-        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright, android.R.color.holo_green_light,
-                android.R.color.holo_orange_light, android.R.color.holo_red_light);
+        swipeRefreshLayout
+                .setColorSchemeResources(android.R.color.holo_blue_bright, android.R.color.holo_green_light, android.R.color.holo_orange_light, android.R.color.holo_red_light);
         swipeRefreshLayout.setOnRefreshListener(this);
         adapter = new BackListActivityAdapter(this, cameraResMgr, camera);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -170,6 +182,8 @@ public class BackListActivity extends BaseDDPActivity implements SwipeRefreshLay
 
     private void initData() {
         cameraResMgr.registerUpdateThumbListener(camera, updateThumbListener, false);
+
+        cameraServer.addCameraStateChangeListener(camResourceListener);
     }
 
     UpdateThumbListener updateThumbListener = new UpdateThumbListener() {
@@ -187,9 +201,33 @@ public class BackListActivity extends BaseDDPActivity implements SwipeRefreshLay
         }
     };
 
+    OnCamResourceListener camResourceListener = new OnCamResourceListener() {
+        @Override
+        public void onEventFileChange(CHANGE change, Camera camera, EventFile eventFile) {
+
+        }
+
+        // 回放文件变更
+        @Override
+        public void onPlayFileChange(CHANGE change, Camera camera, PlayFile playFile) {
+            getbackDatas(false);
+        }
+
+        // 回放文件初始化
+        @Override
+        public void onPlayFileInit(CHANGE change, Camera camera, List<PlayFile> list) {
+
+        }
+
+        @Override
+        public void onTrackFileChange(CHANGE change, Camera camera, TrackFile trackFile) {
+
+        }
+    };
+
     @Override
     public void onRefresh() {
-        getbackDatas();
+        getbackDatas(true);
     }
 
     @Override
@@ -200,6 +238,7 @@ public class BackListActivity extends BaseDDPActivity implements SwipeRefreshLay
         }
         if (cameraServer != null) {
             cameraServer.removeCameraStateChangeListener(camLifeCycleListener);
+            cameraServer.removeCameraStateChangeListener(camResourceListener);
         }
     }
 }
